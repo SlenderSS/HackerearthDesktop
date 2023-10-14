@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using HackerearthDesktop.Services;
+using HackerearthDesktop.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
@@ -40,7 +42,7 @@ namespace HackerearthDesktop
 
         internal static void ConfigureServices(HostBuilderContext host, IServiceCollection services)
         {
-            
+            services.RegisterViewModels().RegisterServices();
 
         }
 
