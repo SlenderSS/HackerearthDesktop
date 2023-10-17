@@ -3,15 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:HackerearthDesktop"
              xmlns:converters="clr-namespace:HackerearthDesktop.Infrastructure.Converters"
-             xmlns:vm="clr-namespace:HackerearthDesktop.ViewModels"
+             xmlns:vm="clr-namespace:HackerearthDesktop.ViewModels" xmlns:system="clr-namespace:System;assembly=System.Runtime"
              StartupUri="Views\Windows\MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                
+                <ResourceDictionary Source="Resources/DataTemplates/DataTemplate.xaml"/>
                 
             </ResourceDictionary.MergedDictionaries>
             <vm:ViewModelLocator x:Key="Locator"/>
+            <system:String x:Key="str" >
+                String test////
+            </system:String>
             <converters:EnumToStringConverter x:Key="EnumToStringConverter"/>
         </ResourceDictionary>
     </Application.Resources>

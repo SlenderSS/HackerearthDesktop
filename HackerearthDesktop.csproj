@@ -205,8 +205,15 @@
     <Compile Include="Infrastructure\Converters\Converter.cs" />
     <Compile Include="Infrastructure\Converters\EnumToStringConverter.cs" />
     <Compile Include="Models\Enums\RequestStatus.cs" />
-    <Compile Include="Models\Languages.cs" />
+    <Compile Include="Models\Language.cs" />
+    <Compile Include="Models\RequestStatus.cs" />
+    <Compile Include="Models\Result.cs" />
+    <Compile Include="Models\RunStatus.cs" />
     <Compile Include="Program.cs" />
+    <Page Include="Resources\DataTemplates\DataTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CodeEditorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -263,7 +270,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\DataTemplates\" />
     <Folder Include="Resources\Images\" />
     <Folder Include="Resources\Languages\" />
     <Folder Include="Resources\Styles\" />

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HackerearthDesktop.Models
 {
-    internal enum Languages
+    internal enum Language
     {
         [Description("C#")]
         CSHARP,
@@ -19,4 +19,13 @@ namespace HackerearthDesktop.Models
         PYTHON
 
     }
+
+    public class Root
+    {
+        public string he_id { get; set; }
+        public RequestStatus_ request_status { get; set; }
+        public string status_update_url { get; set; }
+        public Result result { get; set; }
+    }
+
 }

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HackerearthDesktop.Infrastructure.Common;
+using HackerearthDesktop.Models;
 
 namespace HackerearthDesktop.Infrastructure.Converters
 {
@@ -13,9 +14,13 @@ namespace HackerearthDesktop.Infrastructure.Converters
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (!(value is RequestStatus status)) return null;
+            if (!(value is IEnumerable<Language> langs)) return null;
 
-            return status.DisplayName();
+            return langs.Select(x => x.DisplayName());
+            
         }
+
+      
+
     }
 }

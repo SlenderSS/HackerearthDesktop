@@ -4,25 +4,73 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HackerearthDesktop.Views"
-             xmlns:vm="clr-namespace:HackerearthDesktop.ViewModels"
+             xmlns:vm="clr-namespace:HackerearthDesktop.ViewModels" xmlns:sys="clr-namespace:System;assembly=System.Runtime"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance vm:CodeEditorViewModel, IsDesignTimeCreatable=True}"
-             d:DesignHeight="550" d:DesignWidth="800">
+             d:DesignHeight="700" d:DesignWidth="1200">
     <Grid Background="AliceBlue">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="500"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="500*"/>
+            <ColumnDefinition Width="300*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="500*"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
+
+        <TextBox Grid.Row="0" Text="{Binding Code}" Grid.Column="0" Margin="20 10" Background="LightGray" AcceptsReturn="True" TextWrapping="WrapWithOverflow"/>
+        <TextBox Grid.Row="1" Text="{Binding Input}" Grid.Column="0" Margin="20 10" Background="LightGray"/>
+
+
+        <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="270"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel  Grid.Row="0" Margin="20" HorizontalAlignment="Left">
+
+                <TextBlock Margin="20 30 20 10"  Height="20" HorizontalAlignment="Center" >
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0} - {1}">
+                            
+                            
+                            <Binding Source="{StaticResource str}"/>
+                            <Binding Path="MemoryLimit"/>
+                        </MultiBinding>
+                            
+                    </TextBlock.Text>
+                </TextBlock>
+                <TextBlock Margin="20 20 20 10" Height="20" Text="{Binding TimeLimit}" Width="150"/>
+                <TextBlock Margin="20 20 20 10" Width="150"/>
+                <TextBlock Margin="20 20 20 10" Height="50" Width="150"/>
+            </StackPanel>
+            <StackPanel  Grid.Row="0" Margin=" 20" HorizontalAlignment="Right">
+                
+                <Slider Margin="20 30 20 10" Width="150" Value="{Binding MemoryLimit}" Maximum="262144"/>
+                <Slider Margin="20 20 20 10" Width="150" Value="{Binding TimeLimit}" Maximum="5"/>
+                <ComboBox Margin="20 20 20 10" Width="150" ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}"/>
+                <Button Margin="20 20 20 10" Height="50" Width="150" Content="Submit"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock/>
+                <TextBlock/>
+                <TextBlock/>
+            </StackPanel>
+            <TextBlock Grid.Row="2" Margin="15" Background="LightGray"/>
+
+        </Grid>
+        
+        
+        
+        
+        
         
         <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Height="50">
-            <TextBlock Text="{Binding RequestStatus, Converter={StaticResource EnumToStringConverter}}" 
-                       FontSize="18"
-                       Margin="20 10"/>
+            <!--<TextBlock Text="{Binding RequestStatus, Converter={StaticResource EnumToStringConverter}}" 
+                       FontSize="15"
+                       Margin="20 5"/>-->
         </StackPanel>
     </Grid>
 </UserControl>

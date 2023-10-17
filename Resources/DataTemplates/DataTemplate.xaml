@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vm="clr-namespace:HackerearthDesktop.ViewModels"
+                    xmlns:v="clr-namespace:HackerearthDesktop.Views">
+
+    <DataTemplate DataType="{x:Type vm:CodeEditorViewModel}">
+        <v:CodeEditorView/>
+    </DataTemplate>
+</ResourceDictionary>

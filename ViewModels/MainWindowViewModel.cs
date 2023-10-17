@@ -16,10 +16,21 @@ namespace HackerearthDesktop.ViewModels
             set { Set( ref _title, value); }
         }
 
+        #region CurrentView
+        private object _currentView;
 
-        public MainWindowViewModel()
+        public object CurrentView
         {
+            get { return _currentView; }
+            set { Set(ref _currentView, value); }
+        }
 
+        #endregion
+
+
+        public MainWindowViewModel(CodeEditorViewModel codeEditorViewModel)
+        {
+            CurrentView = codeEditorViewModel;
         }
     }
 }
