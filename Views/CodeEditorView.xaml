@@ -19,8 +19,10 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         
-        <StackPanel Grid.Row="2"  Height="50">
-            <TextBlock />
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Height="50">
+            <TextBlock Text="{Binding RequestStatus, Converter={StaticResource EnumToStringConverter}}" 
+                       FontSize="18"
+                       Margin="20 10"/>
         </StackPanel>
     </Grid>
 </UserControl>

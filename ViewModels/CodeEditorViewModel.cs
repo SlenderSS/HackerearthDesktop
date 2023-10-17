@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HackerearthDesktop.Models;
+using HackerearthDesktop.Models.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,15 +12,17 @@ namespace HackerearthDesktop.ViewModels
     {
 
         #region  Status
-        private string _status;
-        public string Status
+        private RequestStatus _requestStatus;
+
+        public RequestStatus RequestStatus
         {
-            get { return _status; }
-            set {Set(ref _status,value); }
+            get { return _requestStatus; }
+            set { Set(ref _requestStatus, value); }
         }
+
         #endregion
 
-        #region  Status
+        #region  Code
         private string _code;
         public string Code
         {
@@ -26,9 +30,20 @@ namespace HackerearthDesktop.ViewModels
             set { Set(ref _code, value); }
         }
         #endregion
+
+        private Languages _language;
+
+        public Languages Language
+        {
+            get { return _language; }
+            set {Set (ref _language,value); }
+        }
+
+
+        
         public CodeEditorViewModel()
         {
-
+            
         }
     }
 }
