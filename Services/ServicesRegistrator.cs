@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using HackerearthDesktop.Services.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace HackerearthDesktop.Services
     {
         public static IServiceCollection RegisterServices(this IServiceCollection services)
         {
-            
+            services.AddSingleton<IHackerEarthService, HackerEarthService>();
             return services;
         }
     }

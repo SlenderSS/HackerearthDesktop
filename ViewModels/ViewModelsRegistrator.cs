@@ -9,13 +9,11 @@ namespace HackerearthDesktop.ViewModels
 {
     internal static class ViewModelsRegistrator
     {
-        public static IServiceCollection RegisterViewModels(this IServiceCollection services)
-        {
-            services.AddSingleton<MainWindowViewModel>();
+        public static IServiceCollection RegisterViewModels(this IServiceCollection services) =>  services
+            .AddSingleton<MainWindowViewModel>()
+            .AddSingleton<CodeEditorViewModel>()
+            ;
             
-
-
-            return services;
-        }
+       
     }
 }
