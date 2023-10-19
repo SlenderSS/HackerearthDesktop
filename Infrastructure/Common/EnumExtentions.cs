@@ -15,7 +15,7 @@ namespace HackerearthDesktop.Infrastructure.Common
         private static readonly
             ConcurrentDictionary<string, string> DisplayNameCache = new ConcurrentDictionary<string, string>();
 
-        public static string DisplayName(this Enum value)
+        public static string DisplayDescription(this Enum value)
         {
             var key = $"{value.GetType().FullName}.{value}";
 

@@ -1,12 +1,24 @@
-﻿namespace HackerearthDesktop.Models
+﻿using Newtonsoft.Json;
+
+namespace HackerearthDesktop.Models
 {
-    public class RunStatus
+    internal class RunStatus
     {
-        public string output { get; set; }
-        public string status { get; set; }
-        public string status_detail { get; set; }
-        public double time_used { get; set; }
-        public int memory_used { get; set; }
+
+        [JsonProperty("output")]
+        public string Output { get; set; }
+
+        [JsonProperty("status")]
+        public string Status { get; set; }
+
+        [JsonProperty("status_detail")]
+        public string StatusDetail { get; set; }
+
+        [JsonProperty("time_used")]
+        public double TimeUsed { get; set; }
+
+        [JsonProperty("memory_used")]
+        public int MemoryUsed { get; set; }
     }
 
 }

@@ -16,7 +16,7 @@ namespace HackerearthDesktop.Infrastructure.Converters
         {
             if (!(value is IEnumerable<Language> langs)) return null;
 
-            return langs.Select(x => x.DisplayName());
+            return langs.Select(x => x.DisplayDescription());
             
         }
 

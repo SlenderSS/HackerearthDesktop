@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HackerearthDesktop.Services.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace HackerearthDesktop.ViewModels
 {
     class MainWindowViewModel : Base.BaseViewModel
     {
+        private readonly IHackerEarthService hackerEarthService;
 
         private string _title;
         public string Title
@@ -28,8 +30,11 @@ namespace HackerearthDesktop.ViewModels
         #endregion
 
 
-        public MainWindowViewModel(CodeEditorViewModel codeEditorViewModel)
+        public MainWindowViewModel(CodeEditorViewModel codeEditorViewModel, IHackerEarthService hackerEarth)
         {
+
+            hackerEarthService = hackerEarth;
+
             CurrentView = codeEditorViewModel;
         }
     }

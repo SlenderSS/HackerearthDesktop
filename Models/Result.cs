@@ -1,9 +1,14 @@
-﻿namespace HackerearthDesktop.Models
+﻿using Newtonsoft.Json;
+
+namespace HackerearthDesktop.Models
 {
-    public class Result
+    internal class Result
     {
-        public string compile_status { get; set; }
-        public RunStatus run_status { get; set; }
+        [JsonProperty("compile_status")]
+        public string CompileStatus { get; set; }
+
+        [JsonProperty("run_status")]
+        public RunStatus RunStatus { get; set; }
     }
 
 }

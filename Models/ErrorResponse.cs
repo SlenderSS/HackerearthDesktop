@@ -2,13 +2,12 @@
 
 namespace HackerearthDesktop.Models
 {
-    internal class RequestStatus
+    internal class ErrorResponse
     {
-        [JsonProperty("code")]
-        public string Code { get; set; }
-
         [JsonProperty("message")]
         public string Message { get; set; }
+        [JsonProperty("errors")]
+        public Errors Errors { get; set; }
     }
 
 }

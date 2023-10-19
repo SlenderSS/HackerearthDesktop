@@ -119,6 +119,9 @@
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -204,11 +207,15 @@
     <Compile Include="Infrastructure\Common\EnumExtentions.cs" />
     <Compile Include="Infrastructure\Converters\Converter.cs" />
     <Compile Include="Infrastructure\Converters\EnumToStringConverter.cs" />
-    <Compile Include="Models\Enums\RequestStatus.cs" />
+    <Compile Include="Models\Api.cs" />
+    <Compile Include="Models\ErrorResponse.cs" />
+    <Compile Include="Models\Errors.cs" />
     <Compile Include="Models\Language.cs" />
+    <Compile Include="Models\Problem.cs" />
     <Compile Include="Models\RequestStatus.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\RunStatus.cs" />
+    <Compile Include="Models\SubmitResponse.cs" />
     <Compile Include="Program.cs" />
     <Page Include="Resources\DataTemplates\DataTemplate.xaml">
       <SubType>Designer</SubType>
@@ -228,6 +235,8 @@
     </Compile>
     <Compile Include="Services\HackerEarthService.cs" />
     <Compile Include="Services\Interfaces\IHackerEarthService.cs" />
+    <Compile Include="Services\Interfaces\ILeetcodeProblemsService.cs" />
+    <Compile Include="Services\LeetcodeProblemsService.cs" />
     <Compile Include="Services\ServicesRegistrator.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="ViewModels\CodeEditorViewModel.cs" />

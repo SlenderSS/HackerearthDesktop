@@ -16,16 +16,9 @@ namespace HackerearthDesktop.Models
         [Description("C++17")]
         CPP17,
         [Description("Python")]
-        PYTHON
+        PYTHON,
+        JAVA14
 
-    }
-
-    public class Root
-    {
-        public string he_id { get; set; }
-        public RequestStatus_ request_status { get; set; }
-        public string status_update_url { get; set; }
-        public Result result { get; set; }
     }
 
 }
