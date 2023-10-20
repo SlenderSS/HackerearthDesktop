@@ -18,9 +18,13 @@
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0"/>
     </WindowChrome.WindowChrome>
+    <Window.InputBindings>
+        <MouseBinding Gesture="LeftClick" Command="{StaticResource MoveWindowCommand}"/>
+    </Window.InputBindings>
 
     <Grid>
-         <Grid.RowDefinitions>
+        
+        <Grid.RowDefinitions>
              <RowDefinition Height="50"/>
              <RowDefinition Height="700*"/>
          </Grid.RowDefinitions>

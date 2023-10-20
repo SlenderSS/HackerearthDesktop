@@ -25,6 +25,7 @@
             <cmd:SetThemeCommand x:Key="SetThemeCommand"/>
             <cmd:CloseAppCommand x:Key="CloseAppCommand"/>
             <cmd:MinimizeWindowCommand x:Key="MinimizeWindowCommand"/>
+            <cmd:MoveWindowCommand x:Key="MoveWindowCommand"/>
 
         </ResourceDictionary>
     </Application.Resources>

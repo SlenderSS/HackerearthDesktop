@@ -217,9 +217,7 @@
     <Compile Include="Infrastructure\Commands\MoveWindowCommand.cs" />
     <Compile Include="Infrastructure\Commands\SetLanguageCommand.cs" />
     <Compile Include="Infrastructure\Commands\SetThemeCommand.cs" />
-    <Compile Include="Infrastructure\Common\EnumExtentions.cs" />
-    <Compile Include="Infrastructure\Converters\Converter.cs" />
-    <Compile Include="Infrastructure\Converters\EnumToStringConverter.cs" />
+    <Compile Include="Infrastructure\Converters\Convert.cs" />
     <Compile Include="Models\Api.cs" />
     <Compile Include="Models\ErrorResponse.cs" />
     <Compile Include="Models\Errors.cs" />
@@ -260,8 +258,6 @@
     </Compile>
     <Compile Include="Services\HackerEarthService.cs" />
     <Compile Include="Services\Interfaces\IHackerEarthService.cs" />
-    <Compile Include="Services\Interfaces\ILeetcodeProblemsService.cs" />
-    <Compile Include="Services\LeetcodeProblemsService.cs" />
     <Compile Include="Services\ServicesRegistrator.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="ViewModels\CodeEditorViewModel.cs" />
@@ -303,9 +299,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\Themes\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resources\Images\close_act.png" />
     <Resource Include="Resources\Images\close_none.png" />
