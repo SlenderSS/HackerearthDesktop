@@ -1,4 +1,4 @@
-﻿using HackerearthDesktop.Models.Enums;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -10,17 +10,17 @@ using HackerearthDesktop.Models;
 
 namespace HackerearthDesktop.Infrastructure.Converters
 {
-    class EnumToStringConverter : Converter
-    {
-        public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            if (!(value is IEnumerable<Language> langs)) return null;
+    //class EnumToStringConverter : Converter
+    //{
+    //    //public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    //    //{
+    //    //    if (!(value is IEnumerable<Language> langs)) return null;
 
-            return langs.Select(x => x.DisplayDescription());
+    //    //    return langs.Select(x => x.DisplayDescription());
             
-        }
+    //    //}
 
       
 
-    }
+    //}
 }

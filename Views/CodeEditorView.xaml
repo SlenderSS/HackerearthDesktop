@@ -8,69 +8,116 @@
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance vm:CodeEditorViewModel}"
              d:DesignHeight="700" d:DesignWidth="1200">
-    <Grid Background="AliceBlue">
+    
+    <Grid Background="{DynamicResource MaterialDesignCardBackground}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="500*"/>
-            <ColumnDefinition Width="300*"/>
+            <ColumnDefinition Width="400*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="500*"/>
-            <RowDefinition Height="150"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="300*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="200*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
-        <TextBox Grid.Row="0" Text="{Binding Code}" Grid.Column="0" Margin="20 10" Background="LightGray" AcceptsReturn="True" TextWrapping="WrapWithOverflow"/>
-        <TextBox Grid.Row="1" Text="{Binding Input}" Grid.Column="0" Margin="20 10" Background="LightGray"/>
+        <Label Grid.Row="0" Style="{StaticResource LabelStyle}" Content="{DynamicResource Code}" />
+        <Label Grid.Row="2" Style="{StaticResource LabelStyle}" Content="{DynamicResource Input}" />
+        <Label Grid.Row="2" Grid.Column="1" Style="{StaticResource LabelStyle}" Content="{DynamicResource Output}" />
+        
+        
+        <Border Grid.Row="1" Grid.Column="0"  Margin="40 5 40 20" Style="{DynamicResource BorderStyle}">
+            <TextBox Grid.Row="0" Text="{Binding Code}" 
+                     Style="{DynamicResource MaterialDesignOutlinedTextBox}"
+                     Foreground="{DynamicResource MaterialDesignToolForeground}"
+                     FontSize="18"
+                     Padding="30 10"
+                     AcceptsReturn="True"
+                     TextWrapping="WrapWithOverflow"
+                     Background="Transparent"
+                     />
+        </Border>
 
+        <Border Grid.Row="3" Grid.Column="0" Style="{DynamicResource BorderStyle}">
+            <TextBox  Text="{Binding Input}"
+                      Style="{DynamicResource MaterialDesignOutlinedTextBox}"
+                      Foreground="{DynamicResource MaterialDesignToolForeground}"
+                      FontSize="18"
+                      Padding="30 10"
+                      AcceptsReturn="True"
+                      TextWrapping="WrapWithOverflow"
+                      Background="Transparent"/>
+        
+        </Border>
 
-        <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="2">
+        <Grid Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="270"/>
+                <RowDefinition Height="290"/>
                 <RowDefinition Height="100"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <StackPanel  Grid.Row="0" Margin="20" HorizontalAlignment="Left">
+            <StackPanel  Grid.Row="0" Margin="20 20 20 10" HorizontalAlignment="Left" Width="300">
 
-                <TextBlock Margin="20 30 20 10"  Height="20" HorizontalAlignment="Center" >
-                    <TextBlock.Text>
-                        <MultiBinding StringFormat="{}{0} - {1}">
-                            
-                            
-                            <Binding Source="{StaticResource str}"/>
-                            <Binding Path="MemoryLimit"/>
-                        </MultiBinding>
-                            
-                    </TextBlock.Text>
+                <TextBlock Margin="10 30 20 10" Style="{StaticResource TextBlockStyle}">
+                    <Run Text="{DynamicResource MemoryLimit}"/>: <Run Text="{Binding MemoryLimit}"/>
                 </TextBlock>
-                <TextBlock Margin="20 20 20 10" Height="20" Text="{Binding TimeLimit}" Width="150"/>
-                <TextBlock Margin="20 20 20 10" Width="150"/>
-                <TextBlock Margin="20 20 20 10" Height="50" Width="150"/>
+                <TextBlock  Style="{StaticResource TextBlockStyle}"  >
+                    <Run Text="{DynamicResource TimeLimit}" />: <Run Text="{Binding TimeLimit}"/>
+                </TextBlock>
+                <TextBlock Margin="10 5 10 0" Style="{StaticResource TextBlockStyle}" Text="{DynamicResource Lang}" />
+                <TextBlock Grid.Column="0" Margin="10 25 10 0" FontSize="18" HorizontalAlignment="left" Foreground="{DynamicResource MaterialDesignBodyLight}" > 
+                    <Run Text="{DynamicResource UsedMem}"/> - <Run Text="{Binding SubmitResponse.Result.RunStatus.MemoryUsed}"/>
+                </TextBlock>
+                <TextBlock Grid.Column="1" Margin="10 25 10 0" FontSize="18" HorizontalAlignment="left" Foreground="{DynamicResource MaterialDesignBodyLight}" > 
+                    <Run Text="{DynamicResource UsedTime}"/> - <Run Text="{Binding SubmitResponse.Result.RunStatus.TimeUsed}"/>
+                </TextBlock>
+
+
             </StackPanel>
-            <StackPanel  Grid.Row="0" Margin=" 20" HorizontalAlignment="Right">
-                
+            <StackPanel  Grid.Row="0" Margin="20 20 20 10" HorizontalAlignment="Right">
                 <Slider Margin="20 30 20 10" Width="150" Value="{Binding MemoryLimit}" Maximum="262144"/>
-                <Slider Margin="20 20 20 10" Width="150" Value="{Binding TimeLimit}" Maximum="5"/>
-                <ComboBox Margin="20 20 20 10" Width="150" ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}"/>
-                <Button Margin="20 20 20 10" Height="50" Width="150" Content="Submit" Command="{Binding SubmitCommand}"/>
+                <Slider Margin="20 20 20 10" Width="150" Minimum="1" Value="{Binding TimeLimit}" Maximum="5"/>
+                <ComboBox Margin="20 10 20 10" Width="150" FontSize="18" Foreground="{DynamicResource MaterialDesignBodyLight}" Style="{StaticResource MaterialDesignComboBox}" ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}"/>
+                <Button Margin="20" Height="50" FontSize="18" Width="150" Content="Submit" Command="{Binding SubmitCommand}"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" >
-                <TextBlock/>
-                <TextBlock/>
-                <TextBlock/>
-            </StackPanel>
-            <TextBlock Grid.Row="2" Text="{Binding Output}" Margin="15" Background="LightGray"/>
+            <Grid Grid.Row="1" VerticalAlignment="Top"   >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+               
+                
+            </Grid>
+            
+            
 
         </Grid>
+       
+        <Border Grid.Row="3" Grid.Column="1" BorderThickness="1" BorderBrush="{DynamicResource AttentionToActionBrush}" Style="{StaticResource BorderStyle}" Margin="10 10 20 5">
+            <TextBlock  Text="{Binding Output}" 
+                       Padding="30 10"
+                       TextWrapping="WrapWithOverflow"
+                       Style="{StaticResource MaterialDesignBody1TextBlock}"
+                       Foreground="{StaticResource MaterialDesignLightForeground}"
+                       FontFamily="{StaticResource MaterialDesignFont}"
+                       FontSize="18" />
+        </Border>
+
+
+
+
+        <Grid Grid.Row="5" Grid.ColumnSpan="2" Height="50">
+            <Label  
+                   Content="{Binding SubmitResponse.RequestStatus.Message}" 
+                   FontSize="15"
+                   Style="{DynamicResource LabelStyle}"
+                   FontFamily="{StaticResource MaterialDesignFont}"
+                    Margin="20 0 0 0"
+                       />
+        </Grid>
+           
         
-        
-        
-        
-        
-        
-        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Height="50">
-            <TextBlock Text="{Binding SubmitResponse.RequestStatus.Message}" 
-                       FontSize="15"
-                       Margin="20 5"/>
-        </StackPanel>
     </Grid>
 </UserControl>

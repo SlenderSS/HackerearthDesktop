@@ -2,20 +2,30 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:HackerearthDesktop"
+             xmlns:cmd="clr-namespace:HackerearthDesktop.Infrastructure.Commands"
              xmlns:converters="clr-namespace:HackerearthDesktop.Infrastructure.Converters"
-             xmlns:vm="clr-namespace:HackerearthDesktop.ViewModels" xmlns:system="clr-namespace:System;assembly=System.Runtime"
+             xmlns:vm="clr-namespace:HackerearthDesktop.ViewModels" 
+             xmlns:system="clr-namespace:System;assembly=System.Runtime"
              StartupUri="Views\Windows\MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Languages/En_lang.xaml"/>
                 <ResourceDictionary Source="Resources/DataTemplates/DataTemplate.xaml"/>
-                
+                <ResourceDictionary Source="Resources/Styles/BorderStyles.xaml"/>
+
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+
             </ResourceDictionary.MergedDictionaries>
             <vm:ViewModelLocator x:Key="Locator"/>
-            <system:String x:Key="str" >
-                Memory limit -
-            </system:String>
-            <converters:EnumToStringConverter x:Key="EnumToStringConverter"/>
+            <cmd:SetLanguageCommand x:Key="SetLanguageCommand"/>
+            <cmd:SetThemeCommand x:Key="SetThemeCommand"/>
+            <cmd:CloseAppCommand x:Key="CloseAppCommand"/>
+            <cmd:MinimizeWindowCommand x:Key="MinimizeWindowCommand"/>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

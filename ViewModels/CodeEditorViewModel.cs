@@ -1,6 +1,5 @@
 ﻿using HackerearthDesktop.Infrastructure.Commands;
 using HackerearthDesktop.Models;
-using HackerearthDesktop.Models.Enums;
 using HackerearthDesktop.Services.Interfaces;
 using System;
 using System.Collections.Generic;

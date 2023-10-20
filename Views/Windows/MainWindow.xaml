@@ -2,16 +2,86 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HackerearthDesktop"
         xmlns:vm="clr-namespace:HackerearthDesktop.ViewModels" xmlns:sys="clr-namespace:System;assembly=System.Runtime"
         mc:Ignorable="d"
         DataContext="{Binding MainWindowViewModel, Source={StaticResource Locator}}"
-        Title="MainWindow" Height="700" Width="1200">
-    <Grid >
-        <ContentControl Content="{Binding CurrentView}"/>
+        WindowStyle="None"
+       
+        AllowsTransparency="True"
+        ResizeMode="CanResize"
+        Background="{DynamicResource PrimaryHueDarkBrush}"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="750" Width="1200">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0"/>
+    </WindowChrome.WindowChrome>
+
+    <Grid>
+         <Grid.RowDefinitions>
+             <RowDefinition Height="50"/>
+             <RowDefinition Height="700*"/>
+         </Grid.RowDefinitions>
 
 
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="250"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <ComboBox  x:Name="Theme" Grid.Column="1" Margin="0 0 10 10" 
+                          Width="100" FontSize="15"
+                          Foreground="AliceBlue" 
+                          SelectedIndex="0"
+                          Padding="0"
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                          BorderBrush="Gray"  HorizontalAlignment="Left"  >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction CommandParameter="{Binding ElementName=Theme, Path=SelectedItem}" 
+                                                   Command="{StaticResource SetThemeCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
 
-    </Grid>
+                    <ComboBoxItem  Name="dark" >
+                        <Label Content="{DynamicResource Dark}"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem  Name="light" >
+                        <Label Content="{DynamicResource Light}"/>
+                    </ComboBoxItem>
+                </ComboBox>
+                <ComboBox  x:Name="Localize" Grid.Column="1" Margin="0 0 0 10" 
+                          Width="50" FontSize="20"
+                          Padding="0"
+                          Foreground="AliceBlue" 
+                          SelectedIndex="1"
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                          BorderBrush="Gray"  HorizontalAlignment="Left"  >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction CommandParameter="{Binding ElementName=Localize, Path=SelectedItem}" 
+                                                   Command="{StaticResource SetLanguageCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+
+                    <ComboBoxItem  Name="ua" >
+                        <Image Source="/Resources/Images/ua.png" Height="20" Stretch="Fill"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem  Name="en">
+                        <Image Source="/Resources/Images/en.png" Height="20" Stretch="Fill"/>
+                    </ComboBoxItem>
+                </ComboBox>
+                <Button Style="{StaticResource MinimizeWindowStyle}" Command="{StaticResource MinimizeWindowCommand}"/>
+                <Button Style="{StaticResource ExitApp}" Command="{StaticResource MinimizeWindowCommand}"/>
+            </StackPanel>
+        </Grid>
+            <ContentControl Grid.Row="1"  Content="{Binding CurrentView}"/>
+        </Grid>
+       
+    
+    
+    
 </Window>

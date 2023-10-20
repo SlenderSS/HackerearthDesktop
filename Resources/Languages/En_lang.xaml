@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Code">Code</system:String>
+    <system:String x:Key="Input">Input</system:String>
+    <system:String x:Key="MemoryLimit">Memory limit</system:String>
+    <system:String x:Key="TimeLimit">Time limit</system:String>
+    <system:String x:Key="Output">Output</system:String>
+    <system:String x:Key="Submit">Submit</system:String>
+    <system:String x:Key="Lang">Language</system:String>
+    <system:String x:Key="UsedMem">Used memory</system:String>
+    <system:String x:Key="UsedTime">Used time</system:String>
+    <system:String x:Key="Dark">Dark</system:String>
+    <system:String x:Key="Light">Light</system:String>
+    
+
+</ResourceDictionary>

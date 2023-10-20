@@ -1,21 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace HackerearthDesktop.Models
 {
     internal enum Language
-    {
-        [Description("C#")]
-        CSHARP,
-        [Description("C++14")]
-        CPP14,
-        [Description("C++17")]
-        CPP17,
-        [Description("Python")]
+    {       
+        CSHARP,     
+        CPP14,       
+        CPP17,   
         PYTHON,
         JAVA14
 
