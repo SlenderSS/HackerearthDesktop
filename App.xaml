@@ -13,6 +13,9 @@
                 <ResourceDictionary Source="Resources/Languages/En_lang.xaml"/>
                 <ResourceDictionary Source="Resources/DataTemplates/DataTemplate.xaml"/>
                 <ResourceDictionary Source="Resources/Styles/BorderStyles.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/ButtonStyles.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/LabelStyles.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/TextBlockStyles.xaml"/>
 
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
